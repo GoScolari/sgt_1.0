@@ -1,0 +1,48 @@
+{% extends 'seguimientoApp/base.html' %}
+
+{% block title %}
+    Gestionar Incidencias
+{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">Gestionar Incidencias</h2>
+                        <a href="{% url 'crear_incidencia' %}" class="btn btn-success">Agregar Incidencia</a>
+                        <a href="{% url 'lista_incidencias' %}" class="btn btn-primary">Volver</a>
+                        <table class="table mt-4">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Fecha</th>
+                                    <th scope="col">Tipo de Incidencia</th>
+                                    <th scope="col">Estado de Incidencia</th>
+                                    <th scope="col">Vehiculo</th>
+                                    <th scope="col">Comentario</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for incidencia in incidencias %}
+                                    <tr>
+                                        <td>{{ incidencia.fecha }}</td>
+                                        <td>{{ incidencia.tipo_incidencia }}</td>
+                                        <td>{{ incidencia.estado_incidencia }}</td>
+                                        <td>{{ incidencia.vehiculo.marca }}  {{ incidencia.vehiculo.modelo}} {{ incidencia.vehiculo.numero_ppu}}</td>
+                                        <td>{{ incidencia.comentario }}</td>
+                                        <td>
+                                            <a href="{% url 'editar_incidencia' incidencia.id %}" class="btn btn-primary">Editar</a>
+                                            <a href="{% url 'eliminar_incidencia' incidencia.id %}" class="btn btn-danger">Eliminar</a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

@@ -1,0 +1,72 @@
+{% extends 'seguimientoApp/base.html' %}
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>{% block title %}Panel{% endblock %} </title>
+</head>
+<body>
+
+    {% block content %}
+
+    <div class="alert alert-secondary display-1 text-center">
+        <h1>Panel de control</h1>
+        <a href="{% url 'crear_incidencia' %}" class="btn btn-primary mt-2">Reportar Incidencia</a>
+        
+    </div>
+
+    <div class="container mt-4">
+        <div class="row">
+
+            <div class="col-md-4 mb-2">
+                <div class="card card-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Vehículos</h5>
+                        
+                        <!-- Agregar la imagen desde la carpeta static/images con estilos -->
+                        <img src="{% static 'images/Recurso3.png' %}" alt="Imagen de vehículos" class="img-fluid reducir-imagen">
+                        <a href="{% url 'lista_vehiculos' %}" class="btn btn-primary mt-2">Ir a la lista de vehículos</a>
+                    </div>
+                </div>
+            </div>
+            
+
+            <div class="col-md-4 mb-4">
+                <div class="card card-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Mantenciones</h5>
+                        
+                        <!-- Agregar la imagen desde la carpeta static/images -->
+                        <img src="{% static 'images/Recurso6.png' %}" alt="Imagen de vehículos" class="img-fluid">
+            
+                        <!-- Enlace a la lista de vehículos -->
+                        <a href="{% url 'mantencion' %}" class="btn btn-primary mt-2">Ir a la lista Mantenciones</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-4 mb-2">
+                <div class="card card-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Incidencias</h5>
+                        <!-- Otras partes de la tarjeta... -->
+                        <img src="{% static 'images/Recurso5.png' %}" alt="Imagen de vehículos" class="img-fluid reducir-imagen">
+                        
+                        <a href="{% url 'lista_incidencias' %}" class="btn btn-primary mt-2">Ir a la lista de Incidencias</a>
+                    </div>
+                </div>
+            </div>
+            
+            
+        </div>
+    </div>
+
+    {% endblock %}
+
+    
+</body>
+</html>

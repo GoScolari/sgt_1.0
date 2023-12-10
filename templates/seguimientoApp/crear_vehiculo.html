@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script defer src="{% static 'js/funcion.js' %}"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+
+    <!-- <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">Crear Vehículo</h2>
+                        <form method="post">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <input type="submit" value="agregar" class="btn btn-info mt-5" onclick="informar()">
+                            <br>
+                            <a href="{% url 'gestionar_vehiculos' %}" class="btn btn-info mt-5">volver</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">Crear Vehículo</h2>
+                        <form method="post">
+                            {% csrf_token %}                         
+                                                        
+                            <div class="mb-3">
+                                <label for="{{ form.marca.id_for_label }}">Marca:</label>
+                                {{ form.marca }}
+                            </div>
+                            <div class="mb-3">
+                                <label for="{{ form.marca.id_for_label }}">Modelo:</label>
+                                {{ form.modelo }}
+                            </div>
+                            <div class="mb-3">
+                                <label for="{{ form.marca.id_for_label }}">numero_ppu:</label>
+                                {{ form.numero_ppu }}
+                            </div>
+                            <div class="mb-3">
+                                <label for="{{ form.marca.id_for_label }}">Numero de chasis:</label>
+                                {{ form.num_chasis }}
+                            </div>
+                            <div class="mb-3">
+                                <label for="{{ form.marca.id_for_label }}">Año de Fabricacion:</label>
+                                {{ form.ano_fabricacion }}
+                            </div>
+                            <div class="mb-3">
+                                <label for="{{ form.marca.id_for_label }}">kilometraje:</label>
+                                {{ form.kilometraje }}
+                            </div>
+                            <div class="mb-3">
+                                <label for="{{ form.marca.id_for_label }}">Fecha de Adquisicion:</label>
+                                {{ form.fecha_adquisicion }}
+                            </div>
+                            <div class="mb-3">
+                                <label for="{{ form.marca.id_for_label }}">Tipo de Vehiculo:</label>
+                                {{ form.tipo_vehiculo }}
+                            </div>
+                            
+
+                            
+
+                            <!-- Otros campos que desees mostrar -->
+
+                            <input type="submit" value="agregar" class="btn btn-info mt-5" onclick="informar()">
+                            <br>
+                            <a href="{% url 'gestionar_vehiculos' %}" class="btn btn-info mt-5">volver</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
+
+
+
+

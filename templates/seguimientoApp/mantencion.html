@@ -1,0 +1,33 @@
+{% extends 'seguimientoApp/base.html' %}
+
+{% block title %}
+    Lista Mantencion
+{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h2 class="mb-4">Lista Mantencion</h2>
+
+        <div class="card-group">
+            {% for mantencionn in mantenimientos %}
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ mantencionn.tipo_mantenimiento }}</h5>
+                        <p class="card-text"><strong>Fecha:</strong> {{ mantencionn.fecha }}</p>
+                        <p class="card-text"><strong>Observacion:</strong> {{ mantencionn.notas }}</p>
+                        {% comment %} <a href="{% url 'detalle_mantencion' mantencion.id %}" class="btn btn-primary">Ver Detalles</a> {% endcomment %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        
+
+        <div class="text-center mt-5">
+            <a href="{% url 'lista_mantencion' %}" class="btn btn-secondary">Gestionar Mantención</a>
+            <a href="{% url 'panel' %}" class="btn btn-primary">Volver</a>
+        </div>
+    </div>
+
+
+{% endblock %}

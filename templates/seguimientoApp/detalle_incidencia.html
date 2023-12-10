@@ -1,0 +1,41 @@
+{% extends 'seguimientoApp/base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>{% block title %}Detalle de Vehiculos{% endblock %} </title>
+    
+</head>
+<body>
+
+    {% block content %}
+
+    <div class="alert alert-secondary display-1 text-center">
+        <h1>Panel de control</h1>
+    </div>
+
+    <ul class="list-group">
+        <h1>Detalles del Incidencias</h1>
+        <li class="list-group-item">
+            <strong>Fecha:</strong> {{ incidencia.fecha }}
+        <li class="list-group-item">
+            <strong>Tipo de Incidencia:</strong> {{ incidencia.tipo_incidencia}}</li>
+        <li class="list-group-item">
+            <strong>Estado de Incidencia:</strong> {{ incidencia.estado_incidencia }}</li>
+        <li class="list-group-item">
+            <strong>Vehiculo:</strong> {{ incidencia.vehiculo }}</li>
+        <li class="list-group-item">
+            <strong>Comentario:</strong> {{ incidencia.comentario }}</li>
+    </ul>
+
+    {% if 'detalle_incidencia' in request.resolver_match.url_name %}
+    <!-- Botón de volver -->
+    <a href="#" onclick="history.go(-1)" class="btn btn-secondary mt-3 fixed-bottom">Volver</a>
+    {% endif %}
+ 
+    
+    {% endblock %}
+</body>
+</html>

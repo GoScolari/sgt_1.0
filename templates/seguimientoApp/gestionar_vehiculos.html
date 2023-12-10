@@ -1,0 +1,47 @@
+{% extends 'seguimientoApp/base.html' %}
+
+{% block title %}
+    Gestionar Vehículos
+{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="card-title">Gestionar Vehículos</h2>
+                        <a href="{% url 'crear_vehiculo' %}" class="btn btn-success">Agregar Vehículo</a>
+                        <a href="{% url 'lista_vehiculos' %}" class="btn btn-primary">Volver</a>
+                        <table class="table mt-4">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Marca</th>
+                                    <th scope="col">Modelo</th>
+                                    <th scope="col">Número de Placa</th>
+                                    <th scope="col">Chofer</th>
+                                    <th scope="col">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for vehiculo in vehiculos %}
+                                    <tr>
+                                        <td>{{ vehiculo.marca }}</td>
+                                        <td>{{ vehiculo.modelo }}</td>
+                                        <td>{{ vehiculo.numero_ppu }}</td>
+                                        <td>{{ vehiculo.personal.nombre }} {{ vehiculo.personal.apellido_p}}</td>
+                                        <td>
+                                            <a href="{% url 'editar_vehiculo' vehiculo.id %}" class="btn btn-primary">Editar</a>
+                                            <a href="{% url 'eliminar_vehiculo' vehiculo.id %}" class="btn btn-danger">Eliminar</a>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+

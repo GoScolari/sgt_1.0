@@ -1,0 +1,38 @@
+{% extends 'seguimientoApp/base.html' %}
+
+{% block title %}
+    Lista de Incidencias
+{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="mb-0">Listado de Incidencias</h2>
+        </div>
+
+
+        <div class="card-group">
+            {% for incidencia in incidencias %}
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"><strong>Fecha:</strong>{{ incidencia.fecha }}</h5>
+                        <p class="card-text"><strong>Modelo:</strong> {{ incidencia.tipo_incidencia }}</p>
+                        <p class="card-text"><strong>Número de Placa:</strong> {{ incidencia.estado_incidencia }}</p>
+                        <p class="card-text"><strong>Número de Placa:</strong> {{ incidencia.vehiculo }}</p>
+                        <p class="card-text"><strong>Número de Placa:</strong> {{ incidencia.comentario }}</p>
+                        <a href="{% url 'detalle_incidencia' incidencia.id %}" class="btn btn-primary">Ver Detalles</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        
+
+        <div class="text-center mt-5">
+            <a href="{% url 'gestionar_incidencias' %}" class="btn btn-secondary">Gestionar Incidencias</a>
+            <a href="{% url 'panel' %}" class="btn btn-primary">Volver</a>
+        </div>
+    </div>
+
+
+{% endblock %}
